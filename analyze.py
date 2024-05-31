@@ -23,6 +23,14 @@ print(train.head(5))
 print("How many nulls are there?")
 print(train.isnull().sum().sum())
 
+#train = train.drop(["RPN_SP", 'HHID', "RVDATE", "PN", "RJ3MODE", "RCOVFLAG", "RJL3045_1M3"], axis=1)
+
+train = train.drop(["HHID", 'SVDATE', "PN", "SJ3MODE", "SPN_SP", "SJ3731"], axis=1)
+
+train = train.drop(train.columns[0], axis=1)
+
+print("How many nulls are there now?")
+print(train.isnull().sum().sum())
 # Replace nulls with 0 in the data
 #train.fillna("novals", inplace=True)
 #train.fillna(0, inplace=True)
@@ -37,9 +45,11 @@ print(train.isnull().sum().sum())
 #    train = pd.concat([train, pd.get_dummies(for_dummy, prefix=col)], axis=1)
 #print(train.head())
 
+
 labels = train.pop("SJ3584")
 print("Labels: ")
 print(labels)
+
 
 x_train, x_test, y_train, y_test = train_test_split(train, labels, test_size=0.25)
 rf = RandomForestClassifier()
