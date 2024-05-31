@@ -22,7 +22,7 @@ print("How many nulls are there?")
 print(train.isnull().sum().sum())
 
 # Replace nulls with 0 in the data
-train.fillna(0, inplace=True)
+train = train.fillna(0)
 
 # Output to CSV
 train.to_csv('dataInitialClean.csv')
@@ -30,7 +30,7 @@ train.to_csv('dataInitialClean.csv')
 # How many nulls are there?
 print("How many nulls are there now?")
 print(train.isnull().sum().sum())
-
+print(train.head(5))
 # Replace nulls with 0 in the data
 #train.fillna("novals", inplace=True)
 #train.fillna(0, inplace=True)
