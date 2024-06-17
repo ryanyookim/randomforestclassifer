@@ -2,8 +2,8 @@
 
 Analyze the relationship between retirement satisfaction and various variables from HRS data
 
-#Key Data variables:
-##Section PR (Respondent):
+# Key Data variables:
+## Section PR (Respondent):
 
 Sex (SX060_R)
 Coupleness Status (SX065_R)
