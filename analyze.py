@@ -25,7 +25,7 @@ print(train.isnull().sum().sum())
 
 #train = train.drop(["RPN_SP", 'HHID', "RVDATE", "PN", "RJ3MODE", "RCOVFLAG", "RJL3045_1M3"], axis=1)
 
-train = train.drop(["HHID", 'SVDATE', "PN", "SJ3MODE", "SPN_SP", "SJ3731"], axis=1)
+train = train.drop(['SVDATE', "PN", "SJ3MODE", "SPN_SP", "SJ3731"], axis=1)
 
 train = train.drop(train.columns[0], axis=1)
 
@@ -49,8 +49,11 @@ print(train.isnull().sum().sum())
 labels = train.pop("SJ3584")
 print("Labels: ")
 print(labels)
-
-
+healthadd=pd.read_csv("healthconditions.csv")
+healthadd = healthadd.loc[0::,["SC095","SC096"]]
+apple = pd.concat([healthadd,train], axis=1)
+print(apple.head(5))
+'''
 x_train, x_test, y_train, y_test = train_test_split(train, labels, test_size=0.25)
 rf = RandomForestClassifier()
 rf.fit(x_train, y_train)
@@ -89,3 +92,4 @@ print(importances)
 #data.to_csv('retirement.csv')
 
 #print (data.to_string())
+'''

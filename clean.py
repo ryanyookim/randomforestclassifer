@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_curve, auc, accuracy_score, confusion_matrix, classification_report
 
 # Get the training data
-train = pd.read_stata('H22J3_R.dta')
+train = pd.read_stata('H22C_R.dta')
 
 # This prints out the rows and columns
 print("Rows and Colums")
@@ -22,10 +22,10 @@ print("How many nulls are there?")
 print(train.isnull().sum().sum())
 
 # Replace nulls with 0 in the data
-train = train.fillna(0)
+train = train.fillna(-8)
 
 # Output to CSV
-train.to_csv('dataInitialClean.csv')
+train.to_csv('healthconditions.csv')
 
 # How many nulls are there?
 print("How many nulls are there now?")
