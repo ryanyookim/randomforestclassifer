@@ -1,2 +1,4 @@
 *.dta
 *.csv
+.venv
+requirements.txt
